@@ -1,5 +1,5 @@
 
-public class Ex12While {
+public class SharedVariables_Object_While {
    	public static void main(String[] args) {
 
 		int numThreads = 4;

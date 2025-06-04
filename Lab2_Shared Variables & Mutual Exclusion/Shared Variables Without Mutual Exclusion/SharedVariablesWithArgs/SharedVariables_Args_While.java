@@ -1,7 +1,6 @@
 
 
-public class Ex11While {
-  
+public class SharedVariables_Args_While {
     
 
     public static void main(String[] args) {

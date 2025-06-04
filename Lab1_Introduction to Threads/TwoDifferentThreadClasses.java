@@ -2,7 +2,7 @@
  * I decided to have EXTEND and Implement Methods in my program SO ThreadA extends Thread(Klironomikotita) 
  * And ThreadB implements Runnable(Polymorfismos)
 */
-public class question2 {
+public class TwoDifferentThreadClasses {
     public static void main(String[] args) {
 
 

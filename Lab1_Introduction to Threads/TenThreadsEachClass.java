@@ -1,4 +1,4 @@
-public class question3 {
+public class TenThreadsEachClass {
     public static void main(String[] args) {
 
 
