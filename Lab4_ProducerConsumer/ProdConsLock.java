@@ -2,7 +2,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ProducerConsumer
+public class ProdConsLock
 {
 	public static void main(String[] args)
 	{

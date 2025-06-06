@@ -1,7 +1,7 @@
 
 import java.util.concurrent.Semaphore;
 
-public class ParkSem
+public class ParkSemaphore
 {
 	public static void main(String[] args) {
 	    int capacity = 4;

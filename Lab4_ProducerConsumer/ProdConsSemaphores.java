@@ -1,6 +1,6 @@
 import java.util.concurrent.Semaphore;
 
-public class ProdConSemMux
+public class ProdConsSemaphores
 {	
 
 	public static void main(String[] args)

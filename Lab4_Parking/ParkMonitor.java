@@ -1,4 +1,4 @@
-public class ParkMon
+public class ParkMonitor
 {
 	public static void main(String[] args) {
 	    int capacity = 4;

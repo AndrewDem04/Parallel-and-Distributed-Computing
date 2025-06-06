@@ -1,4 +1,4 @@
-public class ProdConSyncCond
+public class ProdConsWaitNotify
 {
 	public static void main(String[] args)
 	{

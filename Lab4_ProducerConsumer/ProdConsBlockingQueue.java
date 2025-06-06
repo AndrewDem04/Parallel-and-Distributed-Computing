@@ -1,7 +1,7 @@
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-public class Ex2
+public class ProdConsBlockingQueue
 {
 	public static void main(String[] args)
 	{
