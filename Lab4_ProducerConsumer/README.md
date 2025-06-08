@@ -1,25 +1,77 @@
-# Lab 4: Producer-Consumer Problem
+## Lab4_ProducerConsumer
 
-This project demonstrates the Producer-Consumer problem, a classic example of a multi-process synchronization scenario in parallel and distributed computing.
+This folder demonstrates four different implementations of the Producer-Consumer problem in Java, each using a different synchronization mechanism:
 
-## Overview
+1. **BlockingQueue**
+2. **Locks and Conditions**
+3. **Semaphores**
+4. **wait/notify**
 
-The Producer-Consumer problem involves two types of processes: producers, which generate data and place it into a buffer, and consumers, which remove data from the buffer for processing. Proper synchronization is required to ensure that producers do not add data into a full buffer and consumers do not remove data from an empty buffer.
+## 1. BlockingQueue (`ProdConsBlockingQueue`)
 
-## Features
+Uses Java's built-in `ArrayBlockingQueue` to manage synchronization between multiple producers and consumers.
 
-- Implementation of producer and consumer threads/processes
-- Shared buffer with synchronization mechanisms
-- Use of semaphores/mutexes to prevent race conditions
-- Configurable buffer size and number of producers/consumers
+- Multiple producers and consumers are supported.
+- The queue handles all synchronization internally.
+- Producers put items into the queue; consumers take items out.
+- Special value `-1` is used to signal consumers to stop.
 
-## Usage
 
-- Modify the buffer size, number of producers, and consumers in the source code as needed.
-- Run the program to observe the synchronization between producers and consumers.
+## 2. Locks and Conditions (`ProdConsLock`)
 
-## Learning Objectives
+Implements a bounded buffer using explicit `Lock` and `Condition` objects.
 
-- Understand synchronization primitives (mutexes, semaphores)
-- Learn about inter-process communication
-- Practice implementing concurrent algorithms
+- Only one producer and one consumer.
+- The buffer uses a lock to ensure mutual exclusion.
+- `bufferFull` and `bufferEmpty` conditions manage waiting and signaling between threads.
+
+
+## 3. Semaphores (`ProdConsSemaphores`)
+
+Uses Java's `Semaphore` class to control access to the buffer.
+
+- Only one producer and one consumer.
+- Two semaphores: `bufferFull` (initialized to 0) and `bufferEmpty` (initialized to 1).
+- Producer waits for an empty slot; consumer waits for a full slot.
+
+
+## 4. wait/notify (`ProdConsWaitNotify`)
+
+Uses Java's intrinsic monitor methods `wait()` and `notify()` for synchronization.
+
+- Only one producer and one consumer.
+- The buffer is protected by synchronized methods.
+- Producer waits if the buffer is full; consumer waits if the buffer is empty.
+
+
+## How to Run
+
+Each implementation is a standalone Java class with a `main` method. Compile and run the desired class:
+
+```sh
+javac ProdConsBlockingQueue.java
+java ProdConsBlockingQueue
+
+javac ProdConsLock.java
+java ProdConsLock
+
+javac ProdConsSemaphores.java
+java ProdConsSemaphores
+
+javac ProdConsWaitNotify.java
+java ProdConsWaitNotify
+```
+
+---
+
+## Notes
+
+- Adjust the number of producers, consumers, buffer size, and delays in the code as needed.
+- Output will show the production and consumption of items, demonstrating synchronization.
+
+---
+
+## References
+
+- [Java Concurrency Utilities](https://docs.oracle.com/javase/tutorial/essential/concurrency/)
+- [Producer-Consumer Problem - Wikipedia](https://en.wikipedia.org/wiki/Producer%E2%80%93consumer_problem)
