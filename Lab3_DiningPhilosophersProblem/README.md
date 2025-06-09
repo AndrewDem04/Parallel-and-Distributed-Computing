@@ -1,4 +1,4 @@
-## Lab3_DiningPhilosophersProblem
+# Lab3_DiningPhilosophersProblem
 
 This folder contains three different Java solutions (`Sol1`, `Sol2`, and `Sol3`) to the classic **Dining Philosophers Problem**, each demonstrating different approaches to avoid deadlock and starvation in concurrent systems.
 

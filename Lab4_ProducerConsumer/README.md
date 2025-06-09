@@ -1,4 +1,4 @@
-## Lab4_ProducerConsumer
+# Lab4_ProducerConsumer
 
 This folder demonstrates four different implementations of the Producer-Consumer problem in Java, each using a different synchronization mechanism:
 

@@ -1,7 +1,3 @@
-
-
-
-
 public class GlobalWhile {
   
     static int end = 10000;

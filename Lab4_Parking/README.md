@@ -1,4 +1,4 @@
-## Lab4_Parking
+# Lab4_Parking
 
 This folder contains three different Java implementations of a parking lot simulation, each demonstrating a different synchronization mechanism for managing concurrent access to a limited number of parking spaces.
 

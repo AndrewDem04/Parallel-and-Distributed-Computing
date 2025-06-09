@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class NewCode {
+public class UsingSynchronizedList {
 
     public static void main(String[] args) {
 		int numThreads = 4;
