@@ -1,6 +1,6 @@
 # Parallel Circuit Checker
 
-In this folder its implementing a parallelized circuit satisfiability checker in Java. The program checks all possible input combinations for a given logical circuit and reports the combinations that satisfy the circuit constraints. The workload is distributed across multiple threads for improved performance.
+This project implements a parallelized circuit satisfiability checker in Java. The program checks all possible input combinations for a given logical circuit and reports the combinations that satisfy the circuit constraints. The workload is distributed across multiple threads for improved performance.
 
 ## How It Works
 
@@ -16,22 +16,25 @@ In this folder its implementing a parallelized circuit satisfiability checker in
 
 ## Usage
 
-Compile the program:
+Compile the desired program:
 
 ```sh
-javac ParallelCircuitChecker.java
+javac P_C_C_WithGlobalList.java
+javac P_C_C_WithLocalLists.java
 ```
 
 Run the program with the desired vector size and number of threads:
 
 ```sh
-java ParallelCircuitChecker <vector size> <Threads>
+java P_C_C_WithGlobalList <vector size> <Threads>
+java P_C_C_WithLocalLists <vector size> <Threads>
 ```
 
 Example:
 
 ```sh
-java ParallelCircuitChecker 23 4
+java P_C_C_WithGlobalList 23 4
+java P_C_C_WithLocalLists 23 4
 ```
 
 ## Output
@@ -41,8 +44,11 @@ java ParallelCircuitChecker 23 4
 
 ## Files
 
-- `ParallelCircuitChecker.java`: Main program file containing all classes.
+- `P_C_C_WithGlobalList.java`: Implementation using a single global list (thread-safe) to collect results.
+- `P_C_C_WithLocalLists.java`: Implementation using a local list per thread, merged at the end for results.
 
 ## Notes
 
 - Ensure that the vector size is large enough to cover all indices used in the circuit logic (e.g., at least 23).
+- Both implementations use the same circuit logic but differ in how results are collected and merged.
+

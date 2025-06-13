@@ -1,7 +1,7 @@
 import java.lang.Math;
 import java.util.LinkedList;
 
-class ParallelCircuitChecker {
+class P_C_C_WithLocalLists {
 	
 	public static void main(String[] args) {  
         
@@ -44,26 +44,34 @@ class ParallelCircuitChecker {
         saveResults save = new saveResults();
 
         int iterations = (int) Math.pow(2, size)/numthreads;
-        LinkedList<String> output = new LinkedList<String>();
 
 
         for(int i = 0; i < numthreads; i++) {
             int startIndex = iterations*i;
             int endIndex = (i == numthreads - 1) ? (int) Math.pow(2 , size) : startIndex + iterations;
 
-            threads[i] = new check_circuit_thread(startIndex , endIndex , size , output, save);
+            threads[i] = new check_circuit_thread(startIndex , endIndex , size , save);
             threads[i].start();
         }
 
+        LinkedList<String> LocalList[] = new LinkedList[numthreads];
         for(int i = 0; i < numthreads; i++) {
 			try {
 				threads[i].join();
+                LocalList[i] = threads[i].getLocalList();
 			} catch (InterruptedException e) {}
 		}
-                   
+        
+        LinkedList<String> finaList = new LinkedList<String>();
+
+        for(int i = 0; i < numthreads; i++) {
+            finaList.addAll(LocalList[i]);
+        }
+
         long elapsedTimeMillis = System.currentTimeMillis()-start;
         
-        System.out.println(output); 
+        
+        System.out.println(finaList); 
         System.out.println ("All done\n");
         System.out.println("time in ms = "+ elapsedTimeMillis);
         
@@ -76,7 +84,7 @@ class saveResults {
     public saveResults() {
     }
     
-    public void saveResult (boolean[] v, int size, int z, LinkedList<String> output) {
+    public void saveResult (boolean[] v, int size, int z, LinkedList<String> TheardLocalList) {
 		
 		String result = null;
 		result = String.valueOf(z);
@@ -88,7 +96,7 @@ class saveResults {
 		//Just print result	for debugging
 		//System.out.println(result);
 		//Save result
-		output.add("\n"+result);
+		TheardLocalList.add("\n"+result);
 	}
     
 }
@@ -99,25 +107,26 @@ class check_circuit_thread extends Thread
 	private int startIndex;
     private int endIndex;
     private int size;
-    private LinkedList<String> output;
     private saveResults save;
 
-	public check_circuit_thread(int startIndex , int endIndex , int size, LinkedList<String> output , saveResults save)
+    /*Local List */
+    private LinkedList<String> localList = new LinkedList<String>();
+
+	public check_circuit_thread(int startIndex , int endIndex , int size , saveResults save)
     {
         this.startIndex = startIndex;
         this.endIndex = endIndex;
         this.size = size;
-        this.output = output;
         this.save = save;
     }
 
 	public void run()
 	{
 		for (int i = startIndex; i < endIndex; i++)
-            check_circuit (i, size, output);
+            check_circuit (i, size, localList);
 	}
 	
-	private void check_circuit (int z, int size, LinkedList<String> output) {
+	private void check_circuit (int z, int size, LinkedList<String> LocalList) {
         
 		boolean[] v = new boolean[size];  /* Each element is a bit of z */
     
@@ -159,7 +168,11 @@ class check_circuit_thread extends Thread
         
         
         if (value) {
-			save.saveResult(v, size, z, output);
+			save.saveResult(v, size, z, LocalList);
 		}	
+    }
+
+    public LinkedList<String> getLocalList() {
+        return localList;
     }
 }
