@@ -1,0 +1,66 @@
+Commant LOWER|ffJdjancQQQ
+Result ffjdjancqqq
+
+java SimpleClientTCP        
+Connection to localhost established
+Enter message to send to server:LOWER|ffJdjancQQQ
+Message received from server: ffjdjancqqq
+Data Socket closed
+
+java SimpleServerTCP        
+Server is listening to port: 1234
+Received request from /127.0.0.1
+Received message from client: LOWER|ffJdjancQQQ
+Send message to client: ffjdjancqqq
+Data socket closed
+---------------------------------------------------
+
+Commant UPPER|gHffsasd
+Result GHFFSASD
+
+java SimpleClientTCP
+Connection to localhost established
+Enter message to send to server:UPPER|gHffsasd
+Message received from server: GHFFSASD
+Data Socket closed
+
+java SimpleServerTCP
+Server is listening to port: 1234
+Received request from /127.0.0.1
+Received message from client: UPPER|gHffsasd
+Send message to client: GHFFSASD
+Data socket closed
+---------------------------------------------------
+
+Commant ENCODE|3|helloWorld
+Result khoorZruog
+
+java SimpleClientTCP
+Connection to localhost established
+Enter message to send to server:ENCODE|3|helloWorld
+Message received from server: khoorZruog
+Data Socket closed
+
+java SimpleServerTCP
+Server is listening to port: 1234
+Received request from /127.0.0.1
+Received message from client: ENCODE|3|helloWorld
+Send message to client: khoorZruog
+Data socket closed
+---------------------------------------------------
+
+Commant DECODE|3|khoorZruog
+Result helloWorld
+
+java SimpleClientTCP
+Connection to localhost established
+Enter message to send to server:DECODE|3|khoorZruog
+Message received from server: helloWorld
+Data Socket closed
+
+java SimpleServerTCP
+Server is listening to port: 1234
+Received request from /127.0.0.1
+Received message from client: DECODE|3|khoorZruog
+Send message to client: helloWorld
+Data socket closed

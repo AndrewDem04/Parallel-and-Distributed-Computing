@@ -1,0 +1,46 @@
+Server
+
+java EchoServerTCP
+Server is listening to port: 1234
+Received request from /127.0.0.1
+
+After we close the client 
+Exception in thread "main" java.net.SocketException: Connection reset
+        at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+        at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+        at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+        at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+        at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+        at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+        at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+        at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+        at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+        at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+        at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+        at EchoServerTCP.main(EchoServerTCP.java:27)
+--------------------------------------------------------------
+
+Client:
+
+java EchoClientTCP        
+Connection to localhost established
+Enter the first number: 10
+Enter the second number: 5
+Enter the operator (+, -, *, /) or ! to exit: +
+Result: 15
+Enter the first number: 10
+Enter the second number: 5
+Enter the operator (+, -, *, /) or ! to exit: -
+Result: 5
+Enter the first number: 10
+Enter the second number: 5
+Enter the operator (+, -, *, /) or ! to exit: *
+Result: 50
+Enter the first number: 10
+Enter the second number: 5
+Enter the operator (+, -, *, /) or ! to exit: /
+Result: 2
+Enter the first number: 10
+Enter the second number: 5
+Enter the operator (+, -, *, /) or ! to exit: !
+Exiting... Goodbye!
