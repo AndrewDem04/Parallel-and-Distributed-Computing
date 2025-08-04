@@ -21,7 +21,6 @@ Both single-client and multi-client (multithreaded server) versions are included
     - `EchoServerTCP.java` / `SimpleServerTCP.java`: Server application.
     - `ClientProtocol.java`: Handles user input and request formatting on the client side.
     - `ServerProtocol.java`: Processes requests and computes results on the server side.
-    - `Data.java`, `Result.java`: Helper classes for data encapsulation.
 
 **Usage:**  
 Client prompts user for two numbers and an operator, sends the request to the server, and displays the result.
@@ -35,7 +34,7 @@ Client prompts user for two numbers and an operator, sends the request to the se
     - `EchoClientTCP.java`: Client application.
     - `MultithreadedEchoServerTCP.java`: Multithreaded server.
     - `ServerThread.java`: Handles each client connection in a separate thread.
-    - `ClientProtocol.java`, `ServerProtocol.java`, `Data.java`, `Result.java`: As above.
+    - `ClientProtocol.java`, `ServerProtocol.java` As above.
 
 **Usage:**  
 Multiple clients can connect and perform calculations simultaneously.
